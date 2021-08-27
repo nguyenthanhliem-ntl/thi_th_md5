@@ -35,7 +35,7 @@ export class DeleteComponent implements OnInit {
 
   deletePlay(id: number) {
     this.playService.deletePlay(id).subscribe(() => {
-      this.router.navigate(['/book/list']);
+      this.router.navigate(['/play/list']);
     }, e => {
       console.log(e);
     });
