@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
   updateBook(id: number) {
     const book  = this.bookForm.value;
     this.bookService.updateBook(id, book).subscribe(() => {
-      alert('ok  nhá!');
+      console.log('edit');
     }, e => {
       console.log(e);
     });
