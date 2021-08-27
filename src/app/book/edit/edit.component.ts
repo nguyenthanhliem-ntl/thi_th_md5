@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {BookService} from '../../service/book.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {PlayService} from '../../service/play.service';
 
 @Component({
   selector: 'app-edit',
@@ -10,32 +10,32 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class EditComponent implements OnInit {
 
-  bookForm: FormGroup ;
+  playForm: FormGroup ;
   id: number;
-  constructor(private bookService: BookService,
+  constructor(private playService: PlayService,
               private activatedRouter: ActivatedRoute) {
     this.activatedRouter.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getBook(this.id);
+      this.getPlay(this.id);
     });
   }
 
   ngOnInit() {
   }
 
-  getBook(id: number) {
-    return this.bookService.findById(id).subscribe(book => {
-      this.bookForm = new FormGroup({
-        title: new FormControl(book.title),
-        author: new FormControl(book.author),
-        description: new FormControl(book.description)
+  getPlay(id: number) {
+    return this.playService.findById(id).subscribe(book => {
+      this.playForm = new FormGroup({
+        name: new FormControl(book.name),
+        champ: new FormControl(book.champ),
+        kda: new FormControl(book.kda)
       });
     });
   }
 
-  updateBook(id: number) {
-    const book  = this.bookForm.value;
-    this.bookService.updateBook(id, book).subscribe(() => {
+  updatePlay(id: number) {
+    const play  = this.playForm.value;
+    this.playService.updatePlay(id, play).subscribe(() => {
       console.log('edit');
     }, e => {
       console.log(e);

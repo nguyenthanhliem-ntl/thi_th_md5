@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {BookService} from '../../service/book.service';
+import {PlayService} from '../../service/play.service';
 
 @Component({
   selector: 'app-create',
@@ -8,20 +8,21 @@ import {BookService} from '../../service/book.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-  bookForm: FormGroup = new FormGroup({
-    title: new FormControl(),
-    author: new FormControl(),
-    description: new FormControl()
+  playForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    champ: new FormControl(),
+    kda: new FormControl(),
+    des: new FormControl(),
   });
-  constructor(private bookService: BookService) { }
+  constructor(private playService: PlayService) { }
 
   ngOnInit() {
   }
 
   submit() {
-    const  book = this.bookForm.value;
-    this.bookService.saveBook(book).subscribe(() => {
-      this.bookForm.reset();
+    const  play = this.playForm.value;
+    this.playService.saveBook(play).subscribe(() => {
+      this.playForm.reset();
       console.log('ok');
     }, e => {
       console.log(e);

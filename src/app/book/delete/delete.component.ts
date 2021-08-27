@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {BookService} from '../../service/book.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {PlayService} from '../../service/play.service';
 
 @Component({
   selector: 'app-delete',
@@ -10,31 +10,31 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 })
 export class DeleteComponent implements OnInit {
 
-  bookForm: FormGroup;
+  playForm: FormGroup;
   id: number;
 
-  constructor(private bookService: BookService,
+  constructor(private playService: PlayService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getBook(this.id);
+      this.getPlay(this.id);
     });
   }
 
   ngOnInit() {
   }
 
-  getBook(id: number) {
-    return this.bookService.findById(id).subscribe(book => {
-      this.bookForm = new FormGroup({
-        title: new FormControl(book.title),
+  getPlay(id: number) {
+    return this.playService.findById(id).subscribe(play => {
+      this.playForm = new FormGroup({
+        name: new FormControl(play.name),
       });
     });
   }
 
-  deleteBook(id: number) {
-    this.bookService.deleteBook(id).subscribe(() => {
+  deletePlay(id: number) {
+    this.playService.deletePlay(id).subscribe(() => {
       this.router.navigate(['/book/list']);
     }, e => {
       console.log(e);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BookService} from '../../service/book.service';
-import {Book} from '../../model/book';
+import {Players} from '../../model/players';
+import {PlayService} from '../../service/play.service';
 
 @Component({
   selector: 'app-list',
@@ -8,15 +8,16 @@ import {Book} from '../../model/book';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
- books: Book[] = [];
-  constructor(private bookService: BookService ) { }
+ plays: Players[] = [];
+  constructor(private playService: PlayService ) { }
 
   ngOnInit() {
+    this.getAll();
   }
 
   getAll() {
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
+    this.playService.getAll().subscribe(plays => {
+      this.plays = plays;
     })
   }
 }

@@ -9,20 +9,20 @@ import { DeleteComponent } from './book/delete/delete.component';
 import { CreateComponent } from './book/create/create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BootstrapComponent } from './bootstrap/bootstrap.component';
+import {HttpClientModule} from '@angular/common/http';
+import {BookModule} from './book/book.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    EditComponent,
-    DeleteComponent,
-    CreateComponent,
     BootstrapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BookModule
   ],
   providers: [],
   bootstrap: [AppComponent]

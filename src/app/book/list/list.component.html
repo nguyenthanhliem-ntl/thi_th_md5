@@ -4,14 +4,16 @@
   <tr>
     <td>STT</td>
     <td>Tên</td>
-    <td>Tác giả</td>
+    <td>champ</td>
+    <td>kda</td>
     <td colspan="5"></td>
   </tr>
-  <tr *ngFor="let book of books; index as i">
+  <tr *ngFor="let play of plays; index as i">
     <td>{{i + 1}}</td>
-    <td>{{book.title}}</td>
-    <td>{{book.author}}</td>
-    <td><a [routerLink]="['/book/edit',book.id]">Edit</a></td>
-    <td><a [routerLink]="['/book/delete',book.id]">Delete</a></td>
+    <td>{{play.name}}</td>
+    <td>{{play.champ}}</td>
+    <td>{{play.kda}}</td>
+    <td><a [routerLink]="['/book/edit',play.id]">Edit</a></td>
+    <td><a [routerLink]="['/book/delete',play.id]">Delete</a></td>
   </tr>
 </table>

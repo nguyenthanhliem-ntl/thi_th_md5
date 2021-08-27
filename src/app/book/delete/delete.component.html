@@ -1,18 +1,22 @@
 <h1>Xoá </h1>
-<form [formGroup]="bookForm" (ngSubmit)="deleteBook(id)">
+<form [formGroup]="playForm" (ngSubmit)="deletePlay(id)">
   <table>
     <tr>
-      <td>Chức vụ:</td>
-      <td><input type="text" formControlName="title"></td>
+      <td>Name: </td>
+      <td><input type="text" formControlName="name"></td>
     </tr>
-        <tr>
-          <td>Tác giả :</td>
-          <td><input type="text" formControlName="author"></td>
-        </tr>
-        <tr>
-          <td>Chú thích :</td>
-          <td><input type="text" formControlName="description"></td>
-        </tr>
+    <tr>
+      <td>Champ:  </td>
+      <td><input type="text" formControlName="champ"></td>
+    </tr>
+    <tr>
+      <td>kda:  </td>
+      <td><input type="text" formControlName="kda"></td>
+    </tr>
+    <tr>
+      <td>des: </td>:
+      <td><input type="text" formControlName="des"></td>
+    </tr>
     <tr>
       <td></td>
       <td><button>Xoá</button></td>
