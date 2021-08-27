@@ -8,6 +8,7 @@ import { EditComponent } from './book/edit/edit.component';
 import { DeleteComponent } from './book/delete/delete.component';
 import { CreateComponent } from './book/create/create.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { BootstrapComponent } from './bootstrap/bootstrap.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ListComponent,
     EditComponent,
     DeleteComponent,
-    CreateComponent
+    CreateComponent,
+    BootstrapComponent
   ],
   imports: [
     BrowserModule,
