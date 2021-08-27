@@ -7,6 +7,7 @@ import { ListComponent } from './book/list/list.component';
 import { EditComponent } from './book/edit/edit.component';
 import { DeleteComponent } from './book/delete/delete.component';
 import { CreateComponent } from './book/create/create.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateComponent } from './book/create/create.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

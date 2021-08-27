@@ -1,1 +1,21 @@
-<p>create works!</p>
+<h1>Tạo mới</h1>
+<form [formGroup]="bookForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Chức vụ: </td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Tác giả:  </td>
+      <td><input type="text" formControlName="author"></td>
+    </tr>
+    <tr>
+      <td>Chứ thích:  </td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Tạo mới</button></td>
+    </tr>
+  </table>
+</form>
